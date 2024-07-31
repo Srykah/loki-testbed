@@ -1,0 +1,12 @@
+tileSetAttributes:
+  - __type__: loki::tiles::SizeTileSetAttribute
+    tileSize:
+      x: 40
+      y: 40
+  - __type__: loki::graphics::TextureTileSetAttribute
+    texture:
+      path: data/tilesets/forest/forest.png
+tilesAttributes:
+  - [ ]
+  - [ { __type__: loki::physics::CollisionTileAttribute,
+        isSolid: true } ]

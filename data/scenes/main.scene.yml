@@ -1,0 +1,46 @@
+name: Main Scene
+root:
+  name: Root Actor
+  components:
+    - __type__: loki::physics::PhysicsWorldComponent
+      worldParams:
+        gravity:
+          x: 0
+          y: 10
+        pixelsToMetersRatio: 20
+  children:
+    - name: Clearing
+      transform:
+        Position:
+          x: 0
+          y: 0
+      components:
+        - __type__: loki::tiles::TileMapDataComponent
+          tileMapData:
+            path: data/tilemaps/clearing.tilemap.yml
+        - __type__: loki::graphics::GraphicsTileMapComponent
+        - __type__: loki::physics::PhysicsTileMapComponent
+          bodyParams:
+            type: Kinematic
+    - name: Ditto
+      transform:
+        Origin:
+          x: 11
+          y: 11
+        Position:
+          x: 100
+          y: 100
+      components:
+        - __type__: loki::graphics::SpriteComponent
+          spriteData:
+            path: data/sprites/ditto/ditto.sprite.yml
+        - __type__: loki::physics::PhysicsBodyComponent
+          bodyParams:
+            type: Dynamic
+            fixedRotation: true
+          fixtureParams:
+            - density: 100
+              shapeParams:
+                __type__: loki::physics::CircleShapeParams
+                radius: 0.5
+        - __type__: loki::testbed::CharacterControllerComponent

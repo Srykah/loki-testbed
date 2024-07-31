@@ -1,0 +1,42 @@
+animations:
+  idle:
+    duration:
+      seconds: 0.6
+    repeat: true
+    ipTexRect:
+      type: NONE
+      points:
+        - first:
+            seconds:
+              0.0
+          second:
+            a: 0
+            b: 0
+            c: 22
+            d: 22
+        - first:
+            seconds:
+              0.2
+          second:
+            a: 22
+            b: 0
+            c: 22
+            d: 22
+        - first:
+            seconds:
+              0.4
+          second:
+            a: 44
+            b: 0
+            c: 22
+            d: 22
+        - first:
+            seconds:
+              0.6
+          second:
+            a: 0
+            b: 0
+            c: 22
+            d: 22
+texture:
+  path: data/sprites/ditto/ditto_cropped.png
