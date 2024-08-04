@@ -13,10 +13,11 @@ class CharacterControllerComponent : public loki::system::Component {
  private:
   loki::physics::PhysicsBodyComponent* physicsBodyComponent = nullptr;
 
-  LOKI_REFLECTION_CLASS_DECLARE_RTTI(CharacterControllerComponent)
+  LOKI_RTTI_CLASS_DECLARE(CharacterControllerComponent)
 };
 
 }  // namespace loki::testbed
 
 LOKI_REFLECTION_CLASS_BEGIN_CHILD(loki::system::Component, loki::testbed::CharacterControllerComponent)
-LOKI_REFLECTION_CLASS_END_RTTI(loki::testbed::CharacterControllerComponent)
+LOKI_REFLECTION_CLASS_END()
+LOKI_RTTI_CLASS_DEFINE(loki::testbed::CharacterControllerComponent)

@@ -1,16 +1,22 @@
-gameName: loki's testbed!
 gameScripts: loki_testbed
-windowSize:
-  x: 1200
-  y: 800
 gameModules:
-  - __type__: loki::physics::PhysicsModule
-  - __type__: loki::system::InputManager
+  - __type__: loki::system::WindowModule
+    windowTitle: loki's testbed!
+    windowSize:
+      x: 1200
+      y: 800
+    windowStyle: DEFAULT
+  - __type__: loki::system::InputModule
     inputConfigs:
       keyboard:
         jump:
           - __type__: loki::system::KeyTrigger
             key: Space
+  - __type__: loki::system::RendererModule
+    internalResolution:
+      x: 1200
+      y: 800
+  - __type__: loki::physics::PhysicsModule
 scenePaths:
   main: data/scenes/main.scene.yml
 firstSceneName: main

@@ -1,4 +1,4 @@
-#include <loki/core/runtimeObject/RuntimeObjectRegistry.hpp>
+#include <loki/core/rtti/RuntimeObjectRegistry.hpp>
 #include <loki/system/ecs/ComponentRegistry.hpp>
 
 #include "CharacterControllerComponent.hpp"
@@ -22,7 +22,7 @@ extern "C" {
 #endif
 
 LOKI_TESTBED_EXPORT void registerServiceRegistry(const void* serviceRegistry) {
-  loki::system::ServiceRegistry::setInstance(static_cast<const loki::system::ServiceRegistry*>(serviceRegistry));
+  loki::core::ServiceRegistry::setInstance(static_cast<const loki::core::ServiceRegistry*>(serviceRegistry));
 }
 
 LOKI_TESTBED_EXPORT void registerCustomRuntimeTypes(void* _runtimeObjectRegistry) {

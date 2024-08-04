@@ -1,6 +1,6 @@
 #include "CharacterControllerComponent.hpp"
 
-#include <loki/system/input/InputManager.hpp>
+#include <loki/system/input/InputModule.hpp>
 
 namespace loki::testbed {
 
@@ -14,7 +14,7 @@ void CharacterControllerComponent::update(sf::Time dt) {
   if (!physicsBodyComponent)
     return;
 
-  const auto& inputManager = getService<loki::system::InputManager>();
+  const auto& inputManager = getService<loki::system::InputModule>();
 
   if (inputManager.getInputState("jump").status == loki::system::InputState::TRIGGERED) {
     physicsBodyComponent->getBody().applyLinearImpulse(JUMP_IMPULSE);
