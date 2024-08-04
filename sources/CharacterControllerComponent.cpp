@@ -8,7 +8,7 @@ void CharacterControllerComponent::onFinalizeInit() {
   physicsBodyComponent = getActor().getComponent<physics::PhysicsBodyComponent>();
 }
 
-void CharacterControllerComponent::update(sf::Time dt) {
+void CharacterControllerComponent::update(system::UpdateStep updateStep, sf::Time dt) {
   static const sf::Vector2f JUMP_IMPULSE{0.f, -1000.f};
 
   if (!physicsBodyComponent)

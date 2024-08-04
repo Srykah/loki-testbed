@@ -16,7 +16,7 @@ gameModules:
     internalResolution:
       x: 1200
       y: 800
-  - __type__: loki::physics::PhysicsModule
+  - __type__: loki::editor::ImGuiModule
 scenePaths:
   main: data/scenes/main.scene.yml
 firstSceneName: main
