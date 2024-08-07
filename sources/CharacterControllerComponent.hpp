@@ -8,7 +8,7 @@ namespace loki::testbed {
 class CharacterControllerComponent : public loki::system::Component {
  public:
   void onFinalizeInit() override;
-  void update(system::UpdateStep updateStep, sf::Time dt) override;
+  void update(sf::Time dt, UpdateSteps::PrePhysics);
 
  private:
   loki::physics::PhysicsBodyComponent* physicsBodyComponent = nullptr;
