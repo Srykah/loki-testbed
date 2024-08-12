@@ -17,6 +17,7 @@ gameModules:
       x: 1200
       y: 800
   - __type__: loki::editor::ImGuiModule
+  - __type__: loki::editor::EditorModule
 scenePaths:
   main: data/scenes/main.scene.yml
 firstSceneName: main
