@@ -5,13 +5,19 @@ gameModules:
     windowSize:
       x: 1200
       y: 800
-    windowStyle: DEFAULT
+    windowStyle: DEFAULT_LETTERBOXED
   - __type__: loki::system::InputModule
     inputConfigs:
       keyboard:
         jump:
           - __type__: loki::system::KeyTrigger
             key: Space
+        left:
+          - __type__: loki::system::KeyTrigger
+            key: Left
+        right:
+          - __type__: loki::system::KeyTrigger
+            key: Right
   - __type__: loki::system::RendererModule
     internalResolution:
       x: 1200

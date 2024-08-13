@@ -1,22 +1,34 @@
 #pragma once
 
-#include <loki/system/ecs/Component.hpp>
-#include <loki/physics/bodies/PhysicsBodyComponent.hpp>
+#include <SFML/System/Time.hpp>
 
-namespace loki::testbed {
+#include <loki/system/ecs/Component.hpp>
+#include <loki/system/scheduler/UpdateSteps.hpp>
+
+namespace loki {
+namespace system {
+class InputModule;
+}
+namespace physics {
+class PhysicsBodyComponent;
+}
+
+namespace testbed {
 
 class CharacterControllerComponent : public loki::system::Component {
  public:
   void onFinalizeInit() override;
-  void update(sf::Time dt, UpdateSteps::PrePhysics);
+  void update(sf::Time dt, loki::UpdateSteps::PrePhysics);
 
  private:
   loki::physics::PhysicsBodyComponent* physicsBodyComponent = nullptr;
+  loki::system::InputModule* inputModule = nullptr;
 
   LOKI_RTTI_CLASS_DECLARE(CharacterControllerComponent)
 };
 
-}  // namespace loki::testbed
+}  // namespace testbed
+}  // namespace loki
 
 LOKI_REFLECTION_CLASS_BEGIN_CHILD(loki::system::Component, loki::testbed::CharacterControllerComponent)
 LOKI_REFLECTION_CLASS_END()
