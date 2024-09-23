@@ -3,7 +3,7 @@
 #include <SFML/System/Time.hpp>
 
 #include <loki/system/ecs/Component.hpp>
-#include <loki/system/scheduler/UpdateSteps.hpp>
+#include <loki/system/scheduler/UpdateTraits.hpp>
 
 namespace loki {
 namespace system {
@@ -18,7 +18,7 @@ namespace testbed {
 class CharacterControllerComponent : public loki::system::Component {
  public:
   void onFinalizeInit() override;
-  void update(sf::Time dt, loki::UpdateSteps::PrePhysics);
+  void onPrePhysics(sf::Time dt);
 
  private:
   loki::physics::PhysicsBodyComponent* physicsBodyComponent = nullptr;
@@ -33,3 +33,7 @@ class CharacterControllerComponent : public loki::system::Component {
 LOKI_REFLECTION_CLASS_BEGIN_CHILD(loki::system::Component, loki::testbed::CharacterControllerComponent)
 LOKI_REFLECTION_CLASS_END()
 LOKI_RTTI_CLASS_DEFINE(loki::testbed::CharacterControllerComponent)
+
+LOKI_UPDATE_TRAITS_BEGIN(loki::testbed::CharacterControllerComponent)
+LOKI_UPDATE_TRAITS_METHOD(PrePhysics, onPrePhysics)
+LOKI_UPDATE_TRAITS_END()

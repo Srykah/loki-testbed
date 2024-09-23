@@ -10,7 +10,7 @@ void CharacterControllerComponent::onFinalizeInit() {
   inputModule = &loki::getService<loki::system::InputModule>();
 }
 
-void CharacterControllerComponent::update(sf::Time dt, loki::UpdateSteps::PrePhysics) {
+void CharacterControllerComponent::onPrePhysics(sf::Time delta) {
   static const sf::Vector2f JUMP_IMPULSE{0.f, -1000.f};
   static const sf::Vector2f MOVE_FORCE{1000.f, 0.f};
 
