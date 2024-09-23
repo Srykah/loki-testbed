@@ -3,8 +3,8 @@ gameModules:
   - __type__: loki::system::WindowModule
     windowTitle: loki's testbed!
     windowSize:
-      x: 1200
-      y: 800
+      x: 300
+      y: 200
     windowStyle: DEFAULT_LETTERBOXED
   - __type__: loki::system::InputModule
     inputConfigs:
@@ -20,8 +20,8 @@ gameModules:
             key: Right
   - __type__: loki::system::RendererModule
     internalResolution:
-      x: 1200
-      y: 800
+      x: 300
+      y: 200
   - __type__: loki::editor::ImGuiModule
   - __type__: loki::editor::EditorModule
 scenePaths:
