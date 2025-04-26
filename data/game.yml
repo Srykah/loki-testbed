@@ -18,11 +18,15 @@ gameModules:
         right:
           - __type__: loki::system::KeyTrigger
             key: Right
+        show_bounding_boxes:
+          - __type__: loki::system::KeyTrigger
+            key: B
   - __type__: loki::system::RendererModule
     internalResolution:
       x: 300
       y: 200
   - __type__: loki::editor::ImGuiModule
+  - __type__: loki::editor::DebugDrawModule
   - __type__: loki::editor::EditorModule
 scenePaths:
   main: data/scenes/main.scene.yml
