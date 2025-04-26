@@ -4,8 +4,7 @@ tileSetAttributes:
       x: 40
       y: 40
   - __type__: loki::graphics::TextureTileSetAttribute
-    texture:
-      path: data/tilesets/forest/forest.png
+    texture: data/tilesets/forest/forest.png
 tilesAttributes:
   - [ ]
   - [ { __type__: loki::physics::CollisionTileAttribute,

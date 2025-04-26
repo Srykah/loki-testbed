@@ -29,5 +29,5 @@ gameModules:
   - __type__: loki::editor::DebugDrawModule
   - __type__: loki::editor::EditorModule
 scenePaths:
-  main: data/scenes/main.scene.yml
+  main: ../../../../data/scenes/main.scene.yml
 firstSceneName: main

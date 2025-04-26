@@ -4,42 +4,47 @@ root:
   components:
     - __type__: loki::physics::PhysicsWorldComponent
       worldParams:
-        gravity:
-          x: 0
-          y: 10
+        gravity: { x: 0, y: 10 }
         pixelsToMetersRatio: 20
+        velocityIterationCount: 8
+        positionIterationCount: 3
   children:
     - name: Clearing
-      transform:
-        Position:
-          x: 0
-          y: 0
       components:
         - __type__: loki::tiles::TileMapDataComponent
-          tileMapData:
-            path: data/tilemaps/clearing.tilemap.yml
+          tileMapData: data/tilemaps/clearing.tilemap.yml
         - __type__: loki::graphics::GraphicsTileMapComponent
         - __type__: loki::physics::PhysicsTileMapComponent
           bodyParams:
             type: Kinematic
+            linearDamping: 0
+            angularDamping: 0
+            gravityScale: 1
+            fixedRotation: false
+            bullet: false
     - name: Ditto
       transform:
-        Origin:
-          x: 11
-          y: 11
-        Position:
-          x: 100
-          y: 100
+        Origin: { x: 11, y: 11 }
+        Position: { x: 100, y: 100 }
+        Rotation: 0
+        Scale: { x: 1, y: 1 }
       components:
         - __type__: loki::graphics::SpriteComponent
-          spriteData:
-            path: data/sprites/ditto/ditto.sprite.yml
+          spriteData: data/sprites/ditto/ditto.sprite.yml
         - __type__: loki::physics::PhysicsBodyComponent
           bodyParams:
             type: Dynamic
+            linearDamping: 0
+            angularDamping: 0
+            gravityScale: 1
             fixedRotation: true
+            bullet: false
           fixtureParams:
-            - density: 100
+            - friction: 0.2
+              restitution: 0
+              restitutionThreshold: 1
+              density: 100
+              isSensor: false
               shapeParams:
                 __type__: loki::physics::CircleShapeParams
                 radius: 0.5

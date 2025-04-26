@@ -1,5 +1,4 @@
-tileset:
-  path: data/tilesets/forest/forest.tileset.yml
+tileset: data/tilesets/forest/forest.tileset.yml
 mapSize:
   x: 5
   y: 5
