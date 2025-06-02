@@ -5,7 +5,7 @@
 
 namespace loki::testbed {
 
-void CharacterControllerComponent::onFinalizeInit() {
+void CharacterControllerComponent::onEndInit() {
   physicsBodyComponent = getActor().getComponent<loki::physics::PhysicsBodyComponent>();
   inputModule = &loki::getService<loki::system::InputModule>();
 }

@@ -17,8 +17,8 @@ namespace testbed {
 
 class CharacterControllerComponent : public loki::system::Component {
  public:
-  void onFinalizeInit() override;
-  void onPrePhysics(sf::Time dt);
+  void onEndInit() override;
+  void onPrePhysics(sf::Time dt) override;
 
  private:
   loki::physics::PhysicsBodyComponent* physicsBodyComponent = nullptr;
@@ -30,10 +30,6 @@ class CharacterControllerComponent : public loki::system::Component {
 }  // namespace testbed
 }  // namespace loki
 
-LOKI_REFLECTION_CLASS_BEGIN_CHILD(loki::system::Component, loki::testbed::CharacterControllerComponent)
+LOKI_REFLECTION_COMPONENT_BEGIN(loki::testbed::CharacterControllerComponent)
 LOKI_REFLECTION_CLASS_END()
 LOKI_RTTI_CLASS_DEFINE(loki::testbed::CharacterControllerComponent)
-
-LOKI_UPDATE_TRAITS_BEGIN(loki::testbed::CharacterControllerComponent)
-LOKI_UPDATE_TRAITS_METHOD(PrePhysics, onPrePhysics)
-LOKI_UPDATE_TRAITS_END()
