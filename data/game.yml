@@ -12,6 +12,8 @@ gameModules:
         jump:
           - __type__: loki::system::KeyTrigger
             key: Space
+          - __type__: loki::system::KeyTrigger
+            key: Up
         left:
           - __type__: loki::system::KeyTrigger
             key: Left
