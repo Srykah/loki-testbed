@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.28)
 project(loki_testbed)
 
+set(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libs" FORCE)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON CACHE BOOL "Export all symbols in dlls" FORCE)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -19,6 +21,7 @@ target_sources(loki_testbed PRIVATE
   sources/CharacterControllerComponent.hpp
   sources/CharacterControllerComponent.cpp)
 target_link_libraries(loki_testbed PRIVATE loki::loki)
+set_target_properties(loki_testbed PROPERTIES PREFIX "")
 
 # copy data
 add_custom_target(copy_data ALL
@@ -31,7 +34,7 @@ add_dependencies(loki_runtime copy_data)
 # copy code
 add_custom_target(copy_code ALL
   COMMAND ${CMAKE_COMMAND} -E copy
-  "${CMAKE_CURRENT_BINARY_DIR}/libloki_testbed.dll" # fixme
+  "${CMAKE_CURRENT_BINARY_DIR}/loki_testbed.dll"
   "${CMAKE_CURRENT_BINARY_DIR}/loki/src/loki-runtime/loki_testbed.dll")
 add_dependencies(copy_code loki_testbed)
 add_dependencies(loki_runtime copy_code)
