@@ -17,13 +17,13 @@ void CharacterControllerComponent::onPrePhysics(sf::Time delta) {
   if (!physicsBodyComponent)
     return;
 
-  if (inputModule->getInputState("jump").status == loki::system::InputState::TRIGGERED) {
+  if (auto jumpState = inputModule->getInputState("jump"); jumpState.hasChanged && jumpState.isActive) {
     physicsBodyComponent->getBody().applyLinearImpulse(JUMP_IMPULSE);
   }
-  if ((inputModule->getInputState("left").status & loki::system::InputState::ACTIVE) != 0) {
+  if (inputModule->getInputState("left").isActive) {
     physicsBodyComponent->getBody().applyForce(-MOVE_FORCE);
   }
-  if ((inputModule->getInputState("right").status & loki::system::InputState::ACTIVE) != 0) {
+  if (inputModule->getInputState("right").isActive) {
     physicsBodyComponent->getBody().applyForce(MOVE_FORCE);
   }
 }
