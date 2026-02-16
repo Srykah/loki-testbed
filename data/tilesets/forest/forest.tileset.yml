@@ -5,7 +5,17 @@ tileSetAttributes:
       y: 40
   - __type__: loki::graphics::TextureTileSetAttribute
     texture: data/tilesets/forest/forest.png
-tilesAttributes:
-  - [ ]
-  - [ { __type__: loki::physics::CollisionTileAttribute,
-        isSolid: true } ]
+tilesData:
+  - name: Grass
+  - name: Brick
+    attributes:
+      - __type__: loki::physics::CollisionTileAttribute
+        isSolid: true
+        shapeParams:
+          __type__: loki::physics::BoxShapeParams
+          material:
+            friction: 0.2
+            restitution: 0
+          density: 100
+          isSensor: false
+          halfSize: { x: 0.5, y: 0.5 }

@@ -20,8 +20,8 @@ root:
             linearDamping: 0
             angularDamping: 0
             gravityScale: 1
-            fixedRotation: false
-            bullet: false
+            fixedRotation: true
+            isBullet: false
     - name: Ditto
       transform:
         Origin: { x: 11, y: 11 }
@@ -38,14 +38,13 @@ root:
             angularDamping: 0
             gravityScale: 1
             fixedRotation: true
-            bullet: false
-          fixtureParams:
-            - friction: 0.2
-              restitution: 0
-              restitutionThreshold: 1
+            isBullet: false
+          shapeParams:
+            - __type__: loki::physics::CircleShapeParams
+              material:
+                friction: 0.2
+                restitution: 0
               density: 100
               isSensor: false
-              shapeParams:
-                __type__: loki::physics::CircleShapeParams
-                radius: 0.5
+              radius: 0.5
         - __type__: loki::testbed::CharacterControllerComponent
